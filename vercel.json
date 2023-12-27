@@ -1,6 +1,13 @@
 {
 	"routes": [
-		{ "handle": "filesystem" },
-		{ "src": "/.*", "dest": "/index.html" }
+		{
+			"src": "/api/(.*)",
+			"dest": "https://mahabazzar-backend.vercel.app/api/$1",
+			"methods": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+		},
+		{
+			"src": "/(.*)",
+			"dest": "/index.html"
+		}
 	]
 }
