@@ -1,0 +1,11 @@
+.pannel_dropdown_field,
+.pannel_dropdown_wrapper,
+.pannel_dropdown_header {
+	border-radius: 0.5rem;
+}
+.pannel_dropdown_wrapper::-webkit-scrollbar {
+	width: 2px;
+}
+.pannel_dropdown_wrapper::-webkit-scrollbar-track {
+	background: transparent;
+}
