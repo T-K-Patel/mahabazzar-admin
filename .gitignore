@@ -19,6 +19,7 @@ dist-ssr
 .env.production.local
 .env.local
 
+.git
 .gitignore
 
 # Editor directories and files

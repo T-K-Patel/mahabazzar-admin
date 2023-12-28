@@ -35,11 +35,12 @@ interface UserData {
 	_id: string;
 	username: string;
 	email: string;
+	firstname: string;
+	lastname: string;
+	gender?: "Male" | "Female";
 	avatar: string;
-	password: string;
 	createdAt: string;
 	updatedAt: string;
-	__v: number;
 	orderHistory: OrderHistoryItem[];
 }
 
@@ -84,11 +85,9 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
 				} else toast.error("Some Error occured.");
 			})
 			.finally(() => {
-				// setLoading(false);
-				// TODO: Remove Timeout in production
 				setTimeout(() => {
 					setLoading(false);
-				}, 500);
+				}, 300);
 			});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [user]);
