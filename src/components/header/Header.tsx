@@ -39,7 +39,7 @@ const ThemeToggle: React.FC = () => {
 			<FontAwesomeIcon
 				icon={themeMode == "dark" ? faMoon : faSun}
 				style={iconStyles}
-				// className={`${themeMode == "dark" ? "moon-icon" : "sun-icon"}`}
+			// className={`${themeMode == "dark" ? "moon-icon" : "sun-icon"}`}
 			/>
 		</button>
 	);
@@ -88,21 +88,21 @@ function Header({
 				<ul className="flex gap-8">
 					{user ? (
 						<>
-							<li className="my-auto">
+							<li className="my-auto hidden md:block">
 								<NavLink to={"/"}>Home</NavLink>
 							</li>
-							<li className="my-auto">
+							<li className="my-auto hidden md:block">
 								<NavLink to={"/users"}>Users</NavLink>
 							</li>
-							<li className="my-auto">
+							<li className="my-auto hidden md:block">
 								{/* TODO: Update admin mail or component here */}
 								<NavLink to={"mailto:admin@domain.com"}>
 									Mail
 								</NavLink>
 							</li>
-							<li className="my-auto">
+							<li className="my-auto hidden md:block">
 								{/* TODO: Make this a dropdown on hover link */}
-								<NavLink to={"/dashboard"}>Profile</NavLink>
+								<NavLink to={"/dashboard"}>My Profile</NavLink>
 							</li>
 						</>
 					) : (

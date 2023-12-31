@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import React, { useState } from "react";
 import useProfile from "./context/user.context";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import MyProfile from "./pages/MyProfile/MyProfile";
 
 
 function ProtectRoute({ element, authRequired }: { element: React.ReactNode, authRequired: boolean }): React.ReactNode {
@@ -28,7 +29,7 @@ ProtectRoute.defaultProps = {
 
 function App() {
 	const { user } = useProfile()
-	const [show, setShow] = useState(user === null)
+	const [show, setShow] = useState(false)
 
 	return (
 		<>
@@ -36,17 +37,15 @@ function App() {
 				{user && <NavPannel show={show} setShow={setShow} />}
 				<div className="no-scrollbar w-[100vw] h-full min-h-[100vh] overflow-scroll">
 					<Header setShow={setShow} />
-					<main className="h-[calc(100%-50px)] overflow-y-scroll max-w-screen-2xl p-2">
+					<main className="h-[calc(100%-50px)] overflow-y-scroll max-w-screen-2xl p-4 md:px-6">
 						<Routes>
-							<Route path="/" element={
-								<div className="max-w-screen-xl mx-auto">
-									<h1 className="text-3xl  text-center dark:text-white dark:bg-gray-800 py-3">
-										Hello this is Admin Page
-									</h1>
-								</div>
-							} />
-							<Route path="/dashboard" element={<><ProtectRoute element={<Dashboard />} /></>} />
-							<Route path="/login" element={<><ProtectRoute authRequired={false} element={<Login />} /></>} />
+							<Route path="" element={<ProtectRoute element={<Dashboard />} />} />
+							<Route path="/dashboard" element={<ProtectRoute element={<MyProfile />} />} />
+							<Route path="/login" element={<ProtectRoute authRequired={false} element={<Login />} />} />
+							{/* <Route path="/new">
+								<Route path="" element={<h1 className="text-3xl">Nested Route</h1>} />
+								<Route path="two" element={<h1 className="text-3xl">Custom Nested Route</h1>} />
+							</Route> */}
 						</Routes>
 					</main>
 				</div>

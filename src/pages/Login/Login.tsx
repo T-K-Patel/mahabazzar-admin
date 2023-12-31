@@ -8,7 +8,6 @@ import {
 	faLockOpen,
 	faSignInAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import "./Login.css"; // Import your CSS file
 import Banner from "../../assets/Brand/myfreelogomaker.com_editor_164044737 (3).png";
 import BannerDark from "../../assets/Brand/myfreelogomaker.com_editor_164044737 (2).png";
 import axios, { AxiosResponse } from "axios";
@@ -68,8 +67,8 @@ const Login = () => {
 	};
 
 	return (
-		<div className="flex align-middle justify-center w-full h-full p-3 pb-5">
-			<div className="h-max grid grid-flow-row-dense lg:grid-flow-col mx-5 md:mx-16 lg:mx-24 my-auto py-3">
+		<div className="flex align-middle justify-center w-full h-full pb-5">
+			<div className="h-max grid grid-flow-row-dense lg:grid-flow-col mx-2 md:mx-16 lg:mx-24 my-auto py-3">
 				<div
 					className="w-full h-full flex z-[-1] max-w-[500px] md:max-w-max bg-primary-500 dark:bg-gray-900"
 					style={{ userSelect: "none" }}
@@ -88,13 +87,13 @@ const Login = () => {
 						validate={validateForm}
 					>
 						{({ isSubmitting, isValid, values }) => (
-							<Form className="h-fit my-auto px-6">
+							<Form className="h-fit my-auto px-4 md:px-6">
 								<h2 className="login-heading text-center text-3xl mb-8">
 									Admin Login
 								</h2>
 
 								{/* Username Field */}
-								<div className="flex align-middle bg-opacity-25 m-0 bg-black dark:bg-white dark:bg-opacity-15 mt-5 p-0">
+								<div className="flex align-middle bg-opacity-25 m-0 bg-black dark:bg-white dark:bg-opacity-15 mt-4 md:mt-5 p-0">
 									<div>
 										<div className="w-10 flex justify-center h-full bg-primary-50 text-primary-800">
 											<FontAwesomeIcon
@@ -108,7 +107,7 @@ const Login = () => {
 										name="username"
 										type="text"
 										placeholder="Username"
-										className="bg-transparent outline-none p-2 w-full placeholder:text-current"
+										className="bg-transparent outline-none p-[0.35rem] md:p-2 w-full placeholder:text-current"
 									/>
 								</div>
 								<span className="text-red-500 text-sm">
@@ -116,7 +115,7 @@ const Login = () => {
 								</span>
 
 								{/* Password Field */}
-								<div className="flex align-middle bg-opacity-25 bg-black dark:bg-white dark:bg-opacity-15 mt-5 mb-1 p-0">
+								<div className="flex align-middle bg-opacity-25 bg-black dark:bg-white dark:bg-opacity-15 mt-4 md:mt-5 mb-1 p-0">
 									<div>
 										<div className="w-10 flex justify-center h-full bg-primary-50 text-primary-800">
 											<FontAwesomeIcon
@@ -136,7 +135,7 @@ const Login = () => {
 											showPassword ? "text" : "password"
 										}
 										placeholder="Password"
-										className="bg-transparent outline-none p-2 pe-0 w-full placeholder:text-current"
+										className="bg-transparent outline-none p-[0.35rem] md:p-2 pe-0 w-full placeholder:text-current"
 									/>
 									<div>
 										<div
@@ -164,15 +163,14 @@ const Login = () => {
 								<div className="flex items-center justify-end">
 									<div className="text-sm">
 										<NavLink
-											to={`${
-												import.meta.env
-													.VITE_FRONTEND_URL || ""
-											}/forgot-password`}
+											to={`${import.meta.env
+												.VITE_FRONTEND_URL || ""
+												}/forgot-password`}
 											className="underline"
 											target={
 												import.meta.env
 													.VITE_FRONTEND_URL ===
-												undefined
+													undefined
 													? ""
 													: "_blank"
 											}

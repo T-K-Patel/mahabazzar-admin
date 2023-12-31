@@ -55,7 +55,7 @@ function Footer({
 							type="button"
 							onClick={onClose}
 						>
-							{closeText || "Close"}
+							{closeText || "Cancel"}
 						</button>
 					)}
 					{onAccept && (
@@ -64,7 +64,7 @@ function Footer({
 							type="button"
 							onClick={onAccept}
 						>
-							{acceptText || "Save Changes"}
+							{acceptText || "Ok"}
 						</button>
 					)}
 				</>
@@ -82,7 +82,6 @@ function Modal({
 	show?: boolean;
 	className?: string;
 }) {
-	// const [showModal, setShowModal] = React.useState(false);
 	document.body.style.position = show ? "fixed" : "";
 	document.body.style.userSelect = show ? "none" : "";
 	return (
@@ -116,5 +115,5 @@ Modal.Header = Header;
 Modal.Body = Body;
 Modal.Footer = Footer;
 
-export { Header, Body, Footer };
+export { Header as ModalHeader, Body as ModalBody, Footer as ModalFooter };
 export default Modal;

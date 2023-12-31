@@ -56,8 +56,6 @@ export const UserContext = createContext<User>({
 const UserProvider = UserContext.Provider;
 
 export const UserContextProvider = ({ children }: { children: ReactNode }) => {
-	document.body.className =
-		"bg-primary-600 dark:bg-gray-800 text-black dark:text-white";
 	const navigate = useNavigate();
 	const [user, setUser] = useState<UserData | null>(null);
 	const [loading, setLoading] = useState<boolean>(true);

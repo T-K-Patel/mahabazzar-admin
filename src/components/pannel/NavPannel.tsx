@@ -35,11 +35,10 @@ function NavPannel({
 
 	return (
 		<aside
-			className={`bg-primary-400 flex absolute ${
-				show ? "left-0" : "left-[-100%]"
-			} flex-col
-			 justify-between font-medium dark:bg-gray-950 w-56 
-			  min-w-56 h-full`}
+			className={`bg-primary-400 flex absolute ${show ? "left-0" : "left-[-100%]"
+				} flex-col
+			 justify-between font-medium dark:bg-gray-950 w-[100vw] sm:w-56 
+			  sm:min-w-56 h-full`}
 			style={{ transition: "left 0.3s ease-in" }}
 		>
 			<div className="w-full px-4 pt-2">
@@ -66,9 +65,8 @@ function NavPannel({
 			<div className="pannel_dropdown_wrapper px-4 h-full overflow-y-scroll">
 				<div className="pannel_dropdown dark:bg-gray-600 bg-primary-300 p-0 my-2 rounded-lg">
 					<div
-						className={`pannel_dropdown_header m-0 pe-3 p-2 py-2 cursor-pointer flex align-middle justify-between hover:bg-primary-150 dark:hover:bg-gray-400 ${
-							open ? "bg-primary-150 dark:bg-gray-400" : ""
-						}`}
+						className={`pannel_dropdown_header m-0 pe-3 p-2 py-2 cursor-pointer flex align-middle justify-between hover:bg-primary-150 dark:hover:bg-gray-400 ${open ? "bg-primary-150 dark:bg-gray-400" : ""
+							}`}
 						onClick={() => {
 							setOpen(!open);
 						}}
@@ -80,9 +78,8 @@ function NavPannel({
 						/>
 					</div>
 					<div
-						className={`pannel_dropdown_field_wrapper m-2 border-t py-2 flex flex-col ${
-							open ? "" : "hidden"
-						}`}
+						className={`pannel_dropdown_field_wrapper m-2 border-t py-2 flex flex-col ${open ? "" : "hidden"
+							}`}
 					>
 						<div className="pannel_dropdown_field has-[.active]:bg-primary-100 hover:bg-primary-150 dark:has-[.active]:bg-gray-400 dark:hover:bg-gray-400">
 							<NavLink
