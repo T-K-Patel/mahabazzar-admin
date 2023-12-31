@@ -15,48 +15,48 @@ function Preloader() {
 							<linearGradient id="SvgjsLinearGradient1015">
 								<stop
 									id="SvgjsStop1016"
-									stop-color="#fbb040"
+									stopColor="#fbb040"
 									offset="0"
 								></stop>
 								<stop
 									id="SvgjsStop1017"
-									stop-color="#f9ed32"
+									stopColor="#f9ed32"
 									offset="1"
 								></stop>
 							</linearGradient>
 							<linearGradient id="SvgjsLinearGradient1018">
 								<stop
 									id="SvgjsStop1019"
-									stop-color="#fbb040"
+									stopColor="#fbb040"
 									offset="0"
 								></stop>
 								<stop
 									id="SvgjsStop1020"
-									stop-color="#f9ed32"
+									stopColor="#f9ed32"
 									offset="1"
 								></stop>
 							</linearGradient>
 							<linearGradient id="SvgjsLinearGradient1021">
 								<stop
 									id="SvgjsStop1022"
-									stop-color="#fbb040"
+									stopColor="#fbb040"
 									offset="0"
 								></stop>
 								<stop
 									id="SvgjsStop1023"
-									stop-color="#f9ed32"
+									stopColor="#f9ed32"
 									offset="1"
 								></stop>
 							</linearGradient>
 							<linearGradient id="SvgjsLinearGradient1024">
 								<stop
 									id="SvgjsStop1025"
-									stop-color="#fbb040"
+									stopColor="#fbb040"
 									offset="0"
 								></stop>
 								<stop
 									id="SvgjsStop1026"
-									stop-color="#f9ed32"
+									stopColor="#f9ed32"
 									offset="1"
 								></stop>
 							</linearGradient>

@@ -33,7 +33,7 @@ function App() {
 
 	return (
 		<>
-			<div className="flex md:h-[100vh] min-h-[600px] max-w-screen-2xl">
+			<div className="flex md:h-[100vh] min-h-[600px] max-w-screen-2xl mx-auto">
 				{user && <NavPannel show={show} setShow={setShow} />}
 				<div className="no-scrollbar w-[100vw] h-full min-h-[100vh] overflow-scroll">
 					<Header setShow={setShow} />

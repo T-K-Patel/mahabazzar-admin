@@ -9,7 +9,7 @@ import { DataContextProvider } from "./context/data.context.tsx";
 import { Flip, ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 
-ReactDOM.createRoot(document.getElementsByTagName("body")[0]!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<ThemeContextProvider>

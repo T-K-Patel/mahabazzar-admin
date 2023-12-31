@@ -61,7 +61,7 @@ function Header({
 					{user && (
 						<button
 							onClick={() => {
-								setShow((s) => !s);
+								setShow(true);
 							}}
 							className="me-5"
 						>
