@@ -15,7 +15,6 @@ import EditProduct from "./pages/Inventory/components/EditProduct";
 function ProtectRoute({ element, authRequired }: { element?: React.ReactNode, authRequired: boolean }): React.ReactNode {
 	const navigate = useNavigate();
 	const { user } = useProfile();
-	// console.log("Route protection checked")
 	React.useEffect(() => {
 		if (authRequired && !user) navigate("/login", { replace: true });
 		if (user && !authRequired) navigate("/dashboard", { replace: true });

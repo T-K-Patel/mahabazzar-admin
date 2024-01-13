@@ -4,8 +4,7 @@ async function RefreshToken() {
 	return await axios
 		.post("/api/v1/users/refresh-token")
 		.then((response) => {
-			console.log(response);
-			return true;
+			return response?.data?.success;
 		})
 		.catch((error) => {
 			console.log(error);

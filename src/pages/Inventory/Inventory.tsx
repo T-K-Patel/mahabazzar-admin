@@ -148,7 +148,6 @@ export default function Inventory() {
         brand: querryParams.get("b") || "",
         category: querryParams.get("c") || "",
     });
-
     const rows = (() => {
         const d = data.filter(
             (row) =>
@@ -156,9 +155,8 @@ export default function Inventory() {
                 row.brand.toLowerCase().includes(filter.brand) &&
                 row.category.toLowerCase().includes(filter.category)
         );
-        if (Math.ceil(d.length / rowsPerPage) < page) {
-            setPage(Math.ceil(d.length / rowsPerPage) - 1);
-        }
+        const curr = Math.max(Math.floor((d.length - 1) / rowsPerPage), 0)
+        if (curr < page) setPage(curr);
         return d;
     })();
 
@@ -167,8 +165,8 @@ export default function Inventory() {
         setFilter(f);
         navigate(
             "?" +
-            (f.title && `t=${f.title}&`) +
-            (f.brand && `b=${f.brand}&`) +
+            (f.title && `t=${f.title}${(f.brand || f.category) && "&"}`) +
+            (f.brand && `b=${f.brand}${(f.category) && "&"}`) +
             (f.category && `c=${f.category}`), { replace: true }
         );
     };

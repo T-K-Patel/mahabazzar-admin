@@ -50,7 +50,7 @@ interface User {
 }
 
 export const UserContext = createContext<User>({
-	setUser: () => {},
+	setUser: () => { },
 });
 
 const UserProvider = UserContext.Provider;
