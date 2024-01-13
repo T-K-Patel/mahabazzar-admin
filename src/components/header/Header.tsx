@@ -1,11 +1,13 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faMoon, faBars } from "@fortawesome/free-solid-svg-icons";
 import useTheme from "../../context/theme.context";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/Brand/Logo.svg";
 import LogoDark from "../../assets/Brand/Logo Dark.svg";
 import useProfile from "../../context/user.context";
+import BrightnessAutoIcon from "@mui/icons-material/BrightnessAuto";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const ThemeToggle: React.FC = () => {
 	const { themeMode, toggleTheme } = useTheme();
@@ -19,15 +21,10 @@ const ThemeToggle: React.FC = () => {
 		aspectRatio: "1",
 		width: "30px",
 		height: "30px",
-		// boxShadow: "0 0 3px currentColor",
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
 		transition: "background-color 0.3s, color 0.3s",
-	};
-
-	const iconStyles: React.CSSProperties = {
-		transition: "transform 0.3s",
 	};
 
 	return (
@@ -36,11 +33,13 @@ const ThemeToggle: React.FC = () => {
 			onClick={toggleTheme}
 			className="m-auto dark:bg-gray-900 dark:hover:bg-gray-700 shadow-gray-500 shadow-sm dark:shadow-primary-300 hover:bg-primary-300 bg-primary-500 dark:text-primary-700 text-gray-800"
 		>
-			<FontAwesomeIcon
-				icon={themeMode == "dark" ? faMoon : faSun}
-				style={iconStyles}
-			// className={`${themeMode == "dark" ? "moon-icon" : "sun-icon"}`}
-			/>
+			{themeMode == "dark" ? (
+				<DarkModeIcon fontSize="small" />
+			) : themeMode == "light" ? (
+				<LightModeIcon fontSize="small" />
+			) : (
+				<BrightnessAutoIcon fontSize="small" />
+			)}
 		</button>
 	);
 };
@@ -59,14 +58,12 @@ function Header({
 					style={{ userSelect: "none" }}
 				>
 					{user && (
-						<button
+						<MenuIcon
 							onClick={() => {
 								setShow(true);
 							}}
-							className="me-5"
-						>
-							<FontAwesomeIcon icon={faBars} />
-						</button>
+							className="me-5 my-auto cursor-pointer"
+						/>
 					)}
 					<NavLink to="/" className={"w-max"}>
 						<h1 className="text-3xl my-auto flex dark:text-[#fbb040] gap-4">
@@ -80,7 +77,7 @@ function Header({
 								alt="MB"
 								className="h-[30px] dark:hidden"
 							/>
-							Admin
+							Merchant
 						</h1>
 					</NavLink>
 				</div>
@@ -96,7 +93,10 @@ function Header({
 							</li>
 							<li className="my-auto hidden md:block">
 								{/* TODO: Update admin mail or component here */}
-								<NavLink to={"mailto:admin@domain.com"}>
+								<NavLink
+									to={"mailto:admin@domain.com"}
+									rel="noopener noreferrer"
+								>
 									Mail
 								</NavLink>
 							</li>

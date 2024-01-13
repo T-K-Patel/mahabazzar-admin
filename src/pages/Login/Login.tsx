@@ -163,14 +163,15 @@ const Login = () => {
 								<div className="flex items-center justify-end">
 									<div className="text-sm">
 										<NavLink
-											to={`${import.meta.env
-												.VITE_FRONTEND_URL || ""
-												}/forgot-password`}
+											to={`${
+												import.meta.env
+													.VITE_FRONTEND_URL || ""
+											}/forgot-password`}
 											className="underline"
 											target={
 												import.meta.env
 													.VITE_FRONTEND_URL ===
-													undefined
+												undefined
 													? ""
 													: "_blank"
 											}

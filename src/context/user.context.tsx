@@ -31,7 +31,7 @@ interface OrderHistoryItem {
 	expectedDelivery: Date | null;
 	createdAt: Date;
 }
-interface UserData {
+export interface UserData {
 	_id: string;
 	username: string;
 	email: string;
@@ -50,7 +50,7 @@ interface User {
 }
 
 export const UserContext = createContext<User>({
-	setUser: () => { },
+	setUser: () => {},
 });
 
 const UserProvider = UserContext.Provider;

@@ -5,14 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faChevronDown,
 	faChevronUp,
-	faCartShopping,
-	faTag,
-	faUserFriends,
-	faExchange,
 	faSignOutAlt,
 	faUserCircle,
-	faX,
 } from "@fortawesome/free-solid-svg-icons";
+import Inventory from "@mui/icons-material/Inventory";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PeopleIcon from "@mui/icons-material/People";
+import CloseIcon from "@mui/icons-material/Close";
 
 import BrandHeroLight from "../../assets/Brand/MahaBazzar.svg";
 import BrandHeroDark from "../../assets/Brand/MahaBazzar Dark.svg";
@@ -33,8 +33,7 @@ function NavPannel({
 	const [showModal, setShowModal] = useState(false);
 	const handleModalClose = () => setShowModal(false);
 
-	const DivRef = useRef<HTMLElement>(null)
-
+	const DivRef = useRef<HTMLElement>(null);
 
 	useEffect(() => {
 		const handleOutsideClick = (e: MouseEvent) => {
@@ -48,24 +47,35 @@ function NavPannel({
 		};
 	}, [setShow]);
 
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	useEffect(() => {
-		setShow(false)
-	}, [setShow, navigate])
+		setShow(false);
+	}, [setShow, navigate]);
 
 	return (
-		<div className={show ? "absolute w-screen h-screen backdrop-blur-[2px] z-[1000]" : "w-0"}>
+		<div
+			className={
+				show
+					? "absolute w-screen h-screen backdrop-blur-[2px] z-[1000]"
+					: "w-0"
+			}
+		>
 			<aside
-				className={`bg-primary-400 flex absolute z-[1001] ${show ? "left-0" : "left-[-100%]"
-					} flex-col justify-between font-medium dark:bg-gray-950 w-[100vw] sm:w-56 sm:min-w-56 h-screen`}
+				className={`bg-primary-400 flex absolute z-[1001] ${
+					show ? "left-0" : "left-[-100%]"
+				} flex-col justify-between font-medium dark:bg-gray-950 w-[100vw] sm:w-56 sm:min-w-56 h-screen`}
 				style={{ transition: "left 0.3s ease-in" }}
 				ref={DivRef}
 			>
 				<div className="w-full px-4 pt-2">
-					<FontAwesomeIcon
+					{/* <FontAwesomeIcon
 						icon={faX}
 						className="p-2 cursor-pointer"
+						onClick={() => setShow(false)}
+					/> */}
+					<CloseIcon
+						className="m-2 ms-4 cursor-pointer"
 						onClick={() => setShow(false)}
 					/>
 				</div>
@@ -86,8 +96,9 @@ function NavPannel({
 				<div className="pannel_dropdown_wrapper px-4 h-full overflow-y-scroll">
 					<div className="pannel_dropdown dark:bg-gray-600 bg-primary-300 p-0 my-2 rounded-lg">
 						<div
-							className={`pannel_dropdown_header m-0 pe-3 p-2 py-2 cursor-pointer flex align-middle justify-between hover:bg-primary-150 dark:hover:bg-gray-400 ${open ? "bg-primary-150 dark:bg-gray-400" : ""
-								}`}
+							className={`pannel_dropdown_header m-0 pe-3 p-2 py-2 cursor-pointer flex align-middle justify-between hover:bg-primary-150 dark:hover:bg-gray-400 ${
+								open ? "bg-primary-150 dark:bg-gray-400" : ""
+							}`}
 							onClick={() => {
 								setOpen(!open);
 							}}
@@ -99,31 +110,32 @@ function NavPannel({
 							/>
 						</div>
 						<div
-							className={`pannel_dropdown_field_wrapper m-2 border-t py-2 flex flex-col ${open ? "" : "hidden"
-								}`}
+							className={`pannel_dropdown_field_wrapper m-2 border-t py-2 flex flex-col ${
+								open ? "" : "hidden"
+							}`}
 						>
 							<div className="pannel_dropdown_field has-[.active]:bg-primary-100 hover:bg-primary-150 dark:has-[.active]:bg-gray-400 dark:hover:bg-gray-400">
 								<NavLink
 									to={`/users`}
 									className="ps-2 flex align-middle py-2 w-full"
 								>
-									<FontAwesomeIcon
-										icon={faUserFriends}
-										className="w-[25px] my-auto"
-									/>{" "}
+									<PeopleIcon
+										fontSize="small"
+										className="w-[25px] my-auto me-2"
+									/>
 									Users
 								</NavLink>
 							</div>
 							<div className="pannel_dropdown_field has-[.active]:bg-primary-100 hover:bg-primary-150 dark:has-[.active]:bg-gray-400 dark:hover:bg-gray-400">
 								<NavLink
-									to={`/products`}
+									to={`/inventory`}
 									className="ps-2 flex align-middle py-2 w-full"
 								>
-									<FontAwesomeIcon
-										icon={faTag}
-										className="w-[25px] my-auto"
-									/>{" "}
-									Products
+									<Inventory
+										fontSize="small"
+										className="w-[25px] my-auto me-2"
+									/>
+									Inventory
 								</NavLink>
 							</div>
 							<div className="pannel_dropdown_field has-[.active]:bg-primary-100 hover:bg-primary-150 dark:has-[.active]:bg-gray-400 dark:hover:bg-gray-400">
@@ -131,10 +143,10 @@ function NavPannel({
 									to={`/orders`}
 									className="ps-2 flex align-middle py-2 w-full"
 								>
-									<FontAwesomeIcon
-										icon={faCartShopping}
-										className="w-[25px] my-auto"
-									/>{" "}
+									<ShoppingCartIcon
+										fontSize="small"
+										className="w-[25px] my-auto me-2"
+									/>
 									Orders
 								</NavLink>
 							</div>
@@ -143,11 +155,11 @@ function NavPannel({
 									to={`/transactions`}
 									className="ps-2 flex align-middle py-2 w-full"
 								>
-									<FontAwesomeIcon
-										icon={faExchange}
-										className="w-[25px] my-auto"
-									/>{" "}
-									Transactions
+									<ReceiptLongIcon
+										fontSize="small"
+										className="w-[25px] my-auto me-2"
+									/>
+									Invoices
 								</NavLink>
 							</div>
 						</div>

@@ -2,21 +2,35 @@ import { Rating } from "@mui/material";
 import useProfile from "../../context/user.context";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Stats from "./components/Stats";
+import RecentOrders from "./components/RecentOrders";
+import TopProducts from "./components/TopProducts";
 
 function Dashboard() {
 	const { user } = useProfile();
-	const rating = Number(Math.round(Math.random() * 400 + 100) / 100)
+	const rating = Number(Math.round(Math.random() * 400 + 100) / 100);
 	if (!user) return <></>;
 	return (
 		<>
 			<div className="w-full flex flex-col md:flex-row gap-4 justify-between mb-3">
 				<div>
 					<h2>Hi {user.firstname}, Welcome back</h2>
-					<p className="text-xs">Your Sales and Products management dashboard</p>
+					<p className="text-xs">
+						Your Sales and Products management dashboard
+					</p>
 				</div>
 				<div className="w-full md:w-auto flex flex-col sm:flex-row justify-center sm:justify-between gap-5 sm:gap-3 md:gap-8">
 					<div className="flex justify-between sm:block">
-						<h2 className="text-center">Rating <small>({Number(Math.floor(Math.random() * 9000 + 100)).toLocaleString()})</small></h2>
+						<h2 className="text-center">
+							Rating{" "}
+							<small>
+								(
+								{Number(
+									Math.floor(Math.random() * 9000 + 100)
+								).toLocaleString()}
+								)
+							</small>
+						</h2>
 						<div className="flex gap-1">
 							<Rating
 								readOnly
@@ -31,46 +45,33 @@ function Dashboard() {
 						</div>
 					</div>
 					<div className="flex justify-between sm:block">
-						<h2 className="text-center sm:text-end">Total products</h2>
-						<p className="text-lg text-center sm:text-end">{Number(Math.floor(Math.random() * 90000 + 1000)).toLocaleString()}</p>
+						<h2 className="text-center sm:text-end">
+							Total products
+						</h2>
+						<p className="text-lg text-center sm:text-end">
+							{Number(
+								Math.floor(Math.random() * 90000 + 1000)
+							).toLocaleString()}
+						</p>
 					</div>
 					<div className="flex justify-between sm:block">
-						<h2 className=" text-center sm:text-end">Total sales</h2>
-						<p className="text-lg text-center sm:text-end">₹ {Number(Math.floor(Math.random() * 900000 + 1000)).toLocaleString()}</p>
+						<h2 className=" text-center sm:text-end">
+							Total sales
+						</h2>
+						<p className="text-lg text-center sm:text-end">
+							₹{" "}
+							{Number(
+								Math.floor(Math.random() * 900000 + 1000)
+							).toLocaleString()}
+						</p>
 					</div>
 				</div>
 			</div>
-			<section className="bg-primary-500 dark:bg-gray-700 p-2 py-4 gap-3 grid sm:grid-cols-2 lg:grid-cols-4">
-				<div className="flex sm:block justify-between align-middle pb-2 w-full border-b-2 sm:border-b-0 sm:border-r-2 border-black dark:border-white">
-					<h2 className="my-auto">Total Quantity</h2>
-					<div>
-						<p className="text-2xl">{Number(Math.floor(Math.random() * 900000 + 1000)).toLocaleString()}</p>
-						<small>{Number(Math.round((Math.random() * 10 + 0.2) * 100) / 100)}% ( 30days )</small>
-					</div>
-				</div>
-
-				<div className="flex sm:block justify-between align-middle pb-2 w-full border-b-2 sm:border-b-0 lg:border-r-2 border-black dark:border-white">
-					<h2 className="my-auto">Total Cost</h2>
-					<div>
-						<p className="text-2xl">₹ {Number(Math.floor(Math.random() * 900000 + 1000)).toLocaleString()}</p>
-						<small>{Number(Math.round((Math.random() * 10 + 0.2) * 100) / 100)}% ( 30days )</small>
-					</div>
-				</div>
-				<div className="flex sm:block justify-between align-middle pb-2 w-full border-b-2 sm:border-b-0 sm:border-r-2 border-black dark:border-white">
-					<h2 className="my-auto">Total Revenue</h2>
-					<div>
-						<p className="text-2xl">₹ {Number(Math.floor(Math.random() * 900000 + 1000)).toLocaleString()}</p>
-						<small>{Number(Math.round((Math.random() * 10 + 0.2) * 100) / 100)}% ( 30days )</small>
-					</div>
-				</div>
-				<div className="flex sm:block justify-between align-middle w-full">
-					<h2 className="my-auto">Total Profit</h2>
-					<div>
-						<p className="text-2xl">₹ {Number(Math.floor(Math.random() * 900000 + 1000)).toLocaleString()}</p>
-						<small>{Number(Math.round((Math.random() * 10 + 0.2) * 100) / 100)}% ( 30days )</small>
-					</div>
-				</div>
-			</section>
+			<Stats />
+			<div className="grid grid-cols-1 mt-2 lg:grid-cols-2 align-middle">
+				<RecentOrders />
+				<TopProducts />
+			</div>
 		</>
 	);
 }
